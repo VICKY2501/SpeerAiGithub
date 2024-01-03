@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.SearchFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/userCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <!-- Avatar -->
+                <ImageView
+                    android:id="@+id/avatarImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:layout_marginEnd="16dp"/>
+
+                <!-- Username -->
+                <TextView
+                    android:id="@+id/usernameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/avatarImageView"
+                    android:text="Username"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:layout_marginTop="8dp"/>
+
+                <!-- Name -->
+                <TextView
+                    android:id="@+id/nameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/usernameTextView"
+                    android:text="Full Name"
+                    android:textSize="14sp"
+                    android:textColor="#888888"
+                    android:layout_marginTop="4dp"/>
+
+                <!-- Description -->
+                <TextView
+                    android:id="@+id/descriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/nameTextView"
+                    android:text="Description"
+                    android:textSize="14sp"
+                    android:textColor="#888888"
+                    android:layout_marginTop="4dp"/>
+
+                <!-- Follower Count -->
+                <TextView
+                    android:id="@+id/followerCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/descriptionTextView"
+                    android:text="0 followers"
+                    android:textSize="12sp"
+                    android:textColor="#888888"
+                    android:layout_marginTop="8dp"/>
+
+                <!-- Following Count -->
+                <TextView
+                    android:id="@+id/followingCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/followerCountTextView"
+                    android:text="0 following"
+                    android:textSize="12sp"
+                    android:textColor="#888888"
+                    android:layout_marginTop="4dp"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+</layout>
