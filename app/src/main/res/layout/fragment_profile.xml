@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-   >
-<data>
-    <variable
-        name="githubdata"
-        type="com.example.speerai.dataclass.GithubDataClass" />
-</data>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ProfileFragment">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
         <!-- CardView -->
         <androidx.cardview.widget.CardView
@@ -30,11 +24,10 @@
                 <!-- Avatar -->
                 <ImageView
                     android:id="@+id/avatarImageView"
-                    imageurl="@{githubdata.avatar_url}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:layout_marginEnd="16dp"/>
 
                 <!-- Username -->
                 <TextView
@@ -42,10 +35,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/avatarImageView"
-                    android:layout_marginTop="8dp"
-                    android:text="@{`UserName: `+githubdata.login}"
+                    android:text="Username"
+                    android:textSize="16sp"
                     android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:layout_marginTop="8dp"/>
 
                 <!-- Name -->
                 <TextView
@@ -53,10 +46,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/usernameTextView"
-                    android:layout_marginTop="4dp"
-                    android:text="@{`Name: `+githubdata.login}"
+                    android:text="Full Name"
+                    android:textSize="14sp"
                     android:textColor="#888888"
-                    android:textSize="14sp" />
+                    android:layout_marginTop="4dp"/>
 
                 <!-- Description -->
                 <TextView
@@ -64,10 +57,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/nameTextView"
-                    android:layout_marginTop="4dp"
-                    android:text="@{`Description: `+githubdata.bio}"
+                    android:text="Description"
+                    android:textSize="14sp"
                     android:textColor="#888888"
-                    android:textSize="14sp" />
+                    android:layout_marginTop="4dp"/>
 
                 <!-- Follower Count -->
                 <TextView
@@ -75,10 +68,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/descriptionTextView"
-                    android:layout_marginTop="8dp"
-                    android:text="@{`Followers Count: `+String.valueOf(githubdata.followers)}"
+                    android:text="0 followers"
+                    android:textSize="12sp"
                     android:textColor="#888888"
-                    android:textSize="12sp" />
+                    android:layout_marginTop="8dp"/>
 
                 <!-- Following Count -->
                 <TextView
@@ -86,11 +79,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/followerCountTextView"
-                    android:layout_marginTop="4dp"
-                    android:text="@{`Following Count: `+String.valueOf(githubdata.following)}"
+                    android:text="0 following"
+                    android:textSize="12sp"
                     android:textColor="#888888"
-                    android:textSize="12sp" />
+                    android:layout_marginTop="4dp"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
-</layout>
+
+</FrameLayout>
