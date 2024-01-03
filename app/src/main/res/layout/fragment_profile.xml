@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".fragments.ProfileFragment">
-
+    <data>
+        <variable
+            name="githubProfile"
+            type="com.example.speerai.dataclass.GithubDataClass" />
+    </data>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,12 +15,12 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/userCardView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="16dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:padding="16dp">
 
                 <!-- Avatar -->
@@ -26,16 +28,17 @@
                     android:id="@+id/avatarImageView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    imageurl="@{githubProfile.avatar_url}"
                     android:scaleType="centerCrop"
                     android:layout_marginEnd="16dp"/>
 
                 <!-- Username -->
                 <TextView
                     android:id="@+id/usernameTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/avatarImageView"
-                    android:text="Username"
+                    android:text="@{`Username: `+githubProfile.login}"
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:layout_marginTop="8dp"/>
@@ -43,10 +46,10 @@
                 <!-- Name -->
                 <TextView
                     android:id="@+id/nameTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/usernameTextView"
-                    android:text="Full Name"
+                    android:text="@{`Name: `+githubProfile.name}"
                     android:textSize="14sp"
                     android:textColor="#888888"
                     android:layout_marginTop="4dp"/>
@@ -54,37 +57,47 @@
                 <!-- Description -->
                 <TextView
                     android:id="@+id/descriptionTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/nameTextView"
-                    android:text="Description"
+                    android:text="@{`Description: `+githubProfile.bio}"
                     android:textSize="14sp"
                     android:textColor="#888888"
                     android:layout_marginTop="4dp"/>
 
                 <!-- Follower Count -->
-                <TextView
+                <Button
                     android:id="@+id/followerCountTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/descriptionTextView"
-                    android:text="0 followers"
+                    android:text="@{`Follower Count: `+String.valueOf(githubProfile.followers)}"
                     android:textSize="12sp"
                     android:textColor="#888888"
                     android:layout_marginTop="8dp"/>
 
                 <!-- Following Count -->
-                <TextView
+                <Button
                     android:id="@+id/followingCountTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/followerCountTextView"
-                    android:text="0 following"
+                    android:text="@{`Following Count: `+String.valueOf(githubProfile.following)}"
                     android:textSize="12sp"
                     android:textColor="#888888"
                     android:layout_marginTop="4dp"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:backgroundTint="#008000"
+                    android:text="Github Profile"
+                    android:textSize="20sp"
+                    android:id="@+id/ProfileLink"
+                    android:layout_marginTop="460dp" />
             </RelativeLayout>
+
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
-</FrameLayout>
+</layout>
